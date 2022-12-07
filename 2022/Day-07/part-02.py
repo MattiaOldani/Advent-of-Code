@@ -19,25 +19,28 @@ with open("input.txt", "r") as f:
 current = str()
 filesystem = dict()
 for cmd in commands:
-    if cmd[0] == "$" and cmd[1] == "cd":
-        match cmd[2]:
-            case "..":
-                current = current[:len(current)-1]
-                index = current[::-1].find("/")
-                current = current[::-1][index:][::-1]
-            case "/":
-                current = "/"
-            case _:
-                current = current + cmd[2] + "/"
-    elif cmd[1] != "ls":
-        try:
-            name,size = cmd[1],int(cmd[0])
-        except:
-            name,size = cmd[1],0
-        try:
-            filesystem[current].append((name,size))
-        except:
-            filesystem[current] = [(name,size)]
+    match cmd:
+        case ["$", "cd", directory]:
+            match directory:
+                case "..":
+                    current = current[:len(current)-1]
+                    index = current[::-1].find("/")
+                    current = current[::-1][index:][::-1]
+                case "/":
+                    current = "/"
+                case _:
+                    current = current + cmd[2] + "/"
+        case ["$", "ls"]:
+            pass
+        case _:
+            try:
+                name,size = cmd[1],int(cmd[0])
+            except:
+                name,size = cmd[1],0
+            try:
+                filesystem[current].append((name,size))
+            except:
+                filesystem[current] = [(name,size)]
 
 all_size = list()
 search(filesystem, "/", all_size)
