@@ -31,14 +31,17 @@ while not found:
         if distance[i][j] + 1 < distance[i-1][j]:
             end.append([i-1, j])
             distance[i-1][j] = distance[i][j] + 1
+
     if i < len(grid) - 1 and ord(grid[i][j]) - ord(grid[i+1][j]) < 2:
         if distance[i][j] + 1 < distance[i+1][j]:
             end.append([i+1, j])
             distance[i+1][j] = distance[i][j] + 1
+
     if j > 0 and ord(grid[i][j]) - ord(grid[i][j-1]) < 2:
         if distance[i][j] + 1 < distance[i][j-1]:
             end.append([i, j-1])
             distance[i][j-1] = distance[i][j] + 1
+            
     if j < len(grid[i]) - 1 and ord(grid[i][j]) - ord(grid[i][j+1]) < 2:
         if distance[i][j] + 1 < distance[i][j+1]:
             end.append([i, j+1])

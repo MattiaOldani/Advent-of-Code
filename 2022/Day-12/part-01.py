@@ -18,7 +18,7 @@ visited = [[False for j in range(len(grid[0]))] for i in range(len(grid))]
 distance = [[2**16 for j in range(len(grid[0]))] for i in range(len(grid))]
 distance[sx][sy] = 0
 
-for dummy in range(len(grid) * len(grid[0])):
+while True:
     i,j = 0,0
     min_ = -1
     for x in range(len(distance)):
@@ -30,18 +30,26 @@ for dummy in range(len(grid) * len(grid[0])):
     if i > 0 and ord(grid[i-1][j]) - ord(grid[i][j]) < 2:
         if distance[i][j] + 1 < distance[i-1][j]:
             distance[i-1][j] = distance[i][j] + 1
+            if grid[i-1][j] == "{":
+                break
 
     if i < len(grid) - 1 and ord(grid[i+1][j]) - ord(grid[i][j]) < 2:
         if distance[i][j] + 1 < distance[i+1][j]:
             distance[i+1][j] = distance[i][j] + 1
+            if grid[i+1][j] == "{":
+                break
 
     if j > 0 and ord(grid[i][j-1]) - ord(grid[i][j]) < 2:
         if distance[i][j] + 1 < distance[i][j-1]:
             distance[i][j-1] = distance[i][j] + 1
+            if grid[i][j-1] == "{":
+                break
 
     if j < len(grid[i]) - 1 and ord(grid[i][j+1]) - ord(grid[i][j]) < 2:
         if distance[i][j] + 1 < distance[i][j+1]:
             distance[i][j+1] = distance[i][j] + 1
+            if grid[i][j+1] == "{":
+                break
 
     visited[i][j] = True
 
