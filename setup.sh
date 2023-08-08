@@ -9,9 +9,7 @@ curl https://adventofcode.com/$1/day/$day/input --cookie session=$AOC --output T
 cp -r Template $1/Day-$2
 cat /dev/null > Template/input.txt
 
-cd $1/Day-$2
-codium .
+code .
 clear
 
 exit
-
