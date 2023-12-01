@@ -1,2 +1,2 @@
 # Advent Of Code
-Questo repository contiene tutte le sfide proposte da [AOC](https://adventofcode.com/)
+Repository contenente tutte le sfide proposte da [AOC](https://adventofcode.com/)
