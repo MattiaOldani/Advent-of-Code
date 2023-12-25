@@ -1,0 +1,9 @@
+reset;
+model part-02.mod;
+
+option solver baron;
+option display_precision 0;
+
+solve;
+
+display Somma;
