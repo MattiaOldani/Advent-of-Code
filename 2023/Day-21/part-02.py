@@ -51,14 +51,14 @@ corner_points = bfs(grid, 0, sj, size-1) + \
                 bfs(grid, si, 0, size-1) + \
                 bfs(grid, si, size-1, size-1)
 
-remove_points = bfs(grid, 0, 0, size // 2 - 1) + \
+triangle_points = bfs(grid, 0, 0, size // 2 - 1) + \
                 bfs(grid, 0, size-1, size // 2 - 1) + \
                 bfs(grid, size-1, 0, size // 2 - 1) + \
                 bfs(grid, size-1, size-1, size // 2 - 1)
 
-half_points = bfs(grid, 0, 0, 3*size // 2 - 1) + \
+trapeze_points = bfs(grid, 0, 0, 3*size // 2 - 1) + \
               bfs(grid, 0, size-1, 3*size // 2 - 1) + \
               bfs(grid, size-1, 0, 3*size // 2 - 1) + \
               bfs(grid, size-1, size-1, 3*size // 2 - 1)
 
-print(even_squares*even_points + odd_squares*odd_points + corner_points + repeated_squares*remove_points + (repeated_squares-1)*half_points)
+print(even_squares*even_points + odd_squares*odd_points + corner_points + repeated_squares*triangle_points + (repeated_squares-1)*trapeze_points)
