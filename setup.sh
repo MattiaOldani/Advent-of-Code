@@ -6,11 +6,12 @@ if [[ $day == 0* ]]; then
 fi
 
 curl https://adventofcode.com/$1/day/$day/input --cookie session=$AOC --output template/input.txt
-cp -r template $1/Day-$2
+
+mkdir -p $1/Day-$2
+cp template/* $1/Day-$2
 
 cat /dev/null > template/input.txt
 
-codium .
-clear
+code .
 
 exit
