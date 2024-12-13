@@ -1,0 +1,9 @@
+reset;
+model part-01.mod;
+data data.dat;
+
+option solver gurobi;
+
+solve;
+
+display z;
