@@ -1,0 +1,8 @@
+reset;
+model part-02.mod;
+
+option solver gurobi;
+
+solve;
+
+display step;
